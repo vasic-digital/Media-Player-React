@@ -1,0 +1,37 @@
+{
+  "name": "@vasic-digital/media-player",
+  "version": "0.1.0",
+  "description": "React media player for Catalogizer entity-aware playback",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run",
+    "lint": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "dependencies": {
+    "@vasic-digital/media-types": "file:../Media-Types-TS"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.0.0",
+    "@testing-library/react": "^14.0.0",
+    "@types/react": "^18.2.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "jsdom": "^24.0.0",
+    "react": "^18.2.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  },
+  "keywords": ["catalogizer", "media", "player", "react", "typescript"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vasic-digital/Media-Player-React.git"
+  }
+}
