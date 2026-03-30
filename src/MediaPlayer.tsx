@@ -40,7 +40,7 @@ export const MediaPlayer: React.FC<MediaPlayerProps> = ({
         />
       ) : (
         <video
-          ref={ref}
+          ref={ref as React.RefObject<HTMLVideoElement>}
           src={streamURL}
           autoPlay={autoPlay}
           onEnded={onEnded}
