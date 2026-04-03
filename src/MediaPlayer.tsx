@@ -3,14 +3,29 @@ import type { MediaEntity } from '@vasic-digital/media-types'
 import { PlayerControls } from './PlayerControls'
 import { useMediaPlayer } from './useMediaPlayer'
 
+/**
+ * Props for the MediaPlayer component.
+ */
 export interface MediaPlayerProps {
+  /** The media entity to play (used for title display and audio/video detection). */
   entity: MediaEntity
+  /** URL of the media stream to load. */
   streamURL: string
+  /** Whether to begin playback immediately on mount. */
   autoPlay?: boolean
+  /** Called when playback reaches the end of the stream. */
   onEnded?: () => void
+  /** Called when a playback error occurs. */
   onError?: (error: string) => void
 }
 
+/**
+ * Entity-aware media player that renders an HTML5 audio or video element
+ * based on the entity's media type. Includes a PlayerControls bar for
+ * play/pause, seek, volume, and mute.
+ *
+ * @param props - MediaPlayerProps
+ */
 export const MediaPlayer: React.FC<MediaPlayerProps> = ({
   entity,
   streamURL,

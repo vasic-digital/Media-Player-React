@@ -1,5 +1,9 @@
 import { useState, useRef, useCallback } from 'react'
 
+/**
+ * Reactive state describing the current media playback position,
+ * volume, and error condition.
+ */
 export interface MediaPlayerState {
   isPlaying: boolean
   isMuted: boolean
@@ -10,6 +14,9 @@ export interface MediaPlayerState {
   error: string | null
 }
 
+/**
+ * Imperative control functions for managing media playback.
+ */
 export interface MediaPlayerControls {
   play: () => void
   pause: () => void
@@ -21,6 +28,13 @@ export interface MediaPlayerControls {
   toggleMute: () => void
 }
 
+/**
+ * Headless hook that manages HTML5 media element playback state.
+ * Returns reactive state, memoized control functions, and a ref to
+ * attach to an HTMLVideoElement or HTMLAudioElement.
+ *
+ * @returns Object with state, controls, and a media element ref.
+ */
 export function useMediaPlayer(): { state: MediaPlayerState; controls: MediaPlayerControls; ref: React.RefObject<HTMLVideoElement | null> } {
   const ref = useRef<HTMLVideoElement>(null)
   const [state, setState] = useState<MediaPlayerState>({

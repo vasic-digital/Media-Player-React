@@ -1,8 +1,13 @@
 import React from 'react'
 import type { MediaPlayerState, MediaPlayerControls } from './useMediaPlayer'
 
+/**
+ * Props for the PlayerControls component.
+ */
 export interface PlayerControlsProps {
+  /** Current playback state (playing, time, volume, muted). */
   state: MediaPlayerState
+  /** Control functions for play, pause, seek, volume, and mute. */
   controls: MediaPlayerControls
 }
 
@@ -12,6 +17,12 @@ function formatTime(seconds: number): string {
   return `${m}:${s.toString().padStart(2, '0')}`
 }
 
+/**
+ * Presentational control bar for media playback. Renders play/pause toggle,
+ * current time and duration display, seek bar, mute toggle, and volume slider.
+ *
+ * @param props - PlayerControlsProps
+ */
 export const PlayerControls: React.FC<PlayerControlsProps> = ({ state, controls }) => {
   return (
     <div data-testid="player-controls" style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '8px', background: '#1a1a1a', color: '#fff' }}>
